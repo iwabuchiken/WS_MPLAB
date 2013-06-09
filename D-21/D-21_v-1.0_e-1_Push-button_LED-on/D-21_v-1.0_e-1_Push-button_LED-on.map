@@ -1,0 +1,36 @@
+MPLINK 4.45, Linker
+Linker Map File - Created Sun Jun 09 15:04:31 2013
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000012
+                   .cinit    romdata   0x000009    program   0x000004
+.config_0FFF_D-21_V-1.0_E-1_PUSH-BUTTON_LED-O       code   0x000fff    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x00000a      
+                            0x000fff    0x000fff      
+            12 out of 261 program addresses used, program memory utilization is 4%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     main   0x000000    program     static C:\WORKS\WS\WS_MPLAB\D-21\D-21_v-1.0_e-1_Push-button_LED-on\D-21_v-1.0_e-1_Push-button_LED-on.asm
+                main_loop   0x000004    program     static C:\WORKS\WS\WS_MPLAB\D-21\D-21_v-1.0_e-1_Push-button_LED-on\D-21_v-1.0_e-1_Push-button_LED-on.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     main   0x000000    program     static C:\WORKS\WS\WS_MPLAB\D-21\D-21_v-1.0_e-1_Push-button_LED-on\D-21_v-1.0_e-1_Push-button_LED-on.asm
+                main_loop   0x000004    program     static C:\WORKS\WS\WS_MPLAB\D-21\D-21_v-1.0_e-1_Push-button_LED-on\D-21_v-1.0_e-1_Push-button_LED-on.asm
+
+
