@@ -1,5 +1,3 @@
-;e-1_p1_t1
-
 	list		p=10f200
 	#include	<p10f200.inc>
 	
@@ -19,16 +17,15 @@ main
 			TRIS		GPIO
 			
 main_loop
+			bsf			GPIO,0
+			
 			btfss		GPIO,3
 			
-			call		Btn_Off
-			
-			bcf			GPIO,0
 			
 			goto		main_loop
 
-Btn_Off
-			bsf			GPIO,0
+			bcf			GPIO,0
+			
 			goto		main_loop
 			
 			END

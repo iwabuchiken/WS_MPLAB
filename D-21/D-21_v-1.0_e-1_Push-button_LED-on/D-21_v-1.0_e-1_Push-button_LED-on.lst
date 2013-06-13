@@ -1,11 +1,13 @@
-MPASM  5.47  D-21_V-1.0_E-1_PUSH-BUTTON_LED-O   6-9-2013  15:04:30         PAGE  1
+MPASM  5.47  D-21_V-1.0_E-1_PUSH-BUTTON_LED-O   6-9-2013  15:29:04         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00001         list            p=10f200
-                      00002         #include        <p10f200.inc>
+                      00001 ;e-1_p1_t1
+                      00002 
+                      00003         list            p=10f200
+                      00004         #include        <p10f200.inc>
                       00001         LIST
                       00002 
                       00003 ;==========================================================================
@@ -15,41 +17,43 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00007 ;==========================================================================
                       00008 
                       00151         LIST
-                      00003         
-0FFF   0FEB           00004         __CONFIG        _CP_OFF & _WDT_OFF & _MCLRE_OFF & _IntRC_OSC
-                      00005 
-  00000010            00006 CNT1            EQU     0x10
-  00000011            00007 CNT2            EQU     0x11
-  00000012            00008 CNT3            EQU     0x12
-                      00009 
-                      00010                         ORG     0x000
+                      00005         
+0FFF   0FEB           00006         __CONFIG        _CP_OFF & _WDT_OFF & _MCLRE_OFF & _IntRC_OSC
+                      00007 
+  00000010            00008 CNT1            EQU     0x10
+  00000011            00009 CNT2            EQU     0x11
+  00000012            00010 CNT3            EQU     0x12
                       00011 
-0000                  00012 main
-0000   0025           00013                         movwf           OSCCAL
-0001   0405           00014                         bcf                     OSCCAL,FOSC4
-                      00015                         
-0002   0CFE           00016                         movlw           b'11111110'
-0003   0006           00017                         TRIS            GPIO
-                      00018                         
-0004                  00019 main_loop
-0004   0506           00020                         bsf                     GPIO,0
-                      00021                         
-0005   0766           00022                         btfss           GPIO,3
+                      00012                         ORG     0x000
+                      00013 
+0000                  00014 main
+0000   0025           00015                         movwf           OSCCAL
+0001   0405           00016                         bcf                     OSCCAL,FOSC4
+                      00017                         
+0002   0CFE           00018                         movlw           b'11111110'
+0003   0006           00019                         TRIS            GPIO
+                      00020                         
+0004                  00021 main_loop
+0004   0766           00022                         btfss           GPIO,3
                       00023                         
-                      00024                         
-0006   0A??           00025                         goto            main_loop
-                      00026 
-0007   0406           00027                         bcf                     GPIO,0
-                      00028                         
-0008   0A??           00029                         goto            main_loop
-                      00030                         
-0FEB                  00031                         END
-MPASM  5.47  D-21_V-1.0_E-1_PUSH-BUTTON_LED-O   6-9-2013  15:04:30         PAGE  2
+0005   09??           00024                         call            Btn_Off
+                      00025                         
+0006   0406           00026                         bcf                     GPIO,0
+                      00027                         
+0007   0A??           00028                         goto            main_loop
+                      00029 
+0008                  00030 Btn_Off
+0008   0506           00031                         bsf                     GPIO,0
+0009   0A??           00032                         goto            main_loop
+                      00033                         
+0FEB                  00034                         END
+MPASM  5.47  D-21_V-1.0_E-1_PUSH-BUTTON_LED-O   6-9-2013  15:29:04         PAGE  2
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+Btn_Off                           00000008
 C                                 00000000
 CAL0                              00000001
 CAL1                              00000002
@@ -102,13 +106,13 @@ _IDLOC3                           00000103
 _IntRC_OSC                        00000FFF
 _MCLRE_OFF                        00000FEF
 _MCLRE_ON                         00000FFF
-_OSC_IntRC                        00000FFF
-MPASM  5.47  D-21_V-1.0_E-1_PUSH-BUTTON_LED-O   6-9-2013  15:04:30         PAGE  3
+MPASM  5.47  D-21_V-1.0_E-1_PUSH-BUTTON_LED-O   6-9-2013  15:29:04         PAGE  3
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+_OSC_IntRC                        00000FFF
 _WDTE_OFF                         00000FFB
 _WDTE_ON                          00000FFF
 _WDT_OFF                          00000FFB
