@@ -1,0 +1,5 @@
+cd C:\WORKS\WS\PIC\P1
+
+git init
+g a .
+gitk

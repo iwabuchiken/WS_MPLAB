@@ -1,0 +1,207 @@
+<<<<<<< HEAD
+MPASM  5.47                   P1_CROSSING.ASM   11-25-2012  12:28:00         PAGE  1
+=======
+MPASM  5.47                   P1_CROSSING.ASM   11-25-2012  13:11:55         PAGE  1
+>>>>>>> B1_basic
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001         list            p=10f200
+                      00002         #include        <p10f200.inc>
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC10F200 processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2012 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00151         LIST
+                      00003         
+                      00004 ;----------------------------------------
+                      00005 
+0FFF   0FEB           00006         __CONFIG        _CP_OFF & _WDT_OFF & _MCLRE_OFF & _IntRC_OSC
+                      00007         
+                      00008 ;----------------------------------------
+                      00009 
+  00000010            00010 CNT1            EQU             0x10
+  00000011            00011 CNT2            EQU             0x11
+  00000012            00012 CNT3            EQU             0x12
+                      00013 
+                      00014                         ORG             0x000
+                      00015                         
+0000                  00016 main ;------------------------------
+0000   0025           00017                         movwf   OSCCAL
+0001   0405           00018                         bcf             OSCCAL,FOSC4
+                      00019                         
+0002   0CFC           00020                         movlw   b'11111100'
+0003   0006           00021                         TRIS    GPIO
+                      00022                         
+0004                  00023 main_loop ;------------------------------
+<<<<<<< HEAD
+0004   0526           00024                         bsf             GPIO,1
+0005   0426           00025                         bcf             GPIO,1
+                      00026                         
+                      00027 
+                      00028 ;---------------------------------------
+0FEB                  00029                         END
+MPASM  5.47                   P1_CROSSING.ASM   11-25-2012  12:28:00         PAGE  2
+=======
+0004   0506           00024                         bsf             GPIO,0
+0005   0426           00025                         bcf             GPIO,1
+                      00026                         
+0006   09??           00027                         call    DLY_S
+                      00028                         
+                      00029                         ;-----------------------------
+                      00030                         
+0007   0406           00031                         bcf             GPIO,0
+0008   0526           00032                         bsf             GPIO,1
+                      00033                         
+0009   09??           00034                         call    DLY_S
+                      00035                         
+                      00036                         ;-----------------------------                  
+000A   0A??           00037                         goto    main_loop
+                      00038 
+000B                  00039 DLY_S ;------------------------------
+000B   0C05           00040                         movlw   d'5'
+000C   0032           00041                         movwf   CNT3
+                      00042 
+000D                  00043 DLY_100 ;------------------------------
+000D   0C64           00044                         movlw   d'100'
+MPASM  5.47                   P1_CROSSING.ASM   11-25-2012  13:11:55         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000E   0030           00045                         movwf   CNT1
+                      00046 
+000F                  00047 DLP1 ;------------------------------
+000F   0CC8           00048                         movlw   d'200'
+0010   0031           00049                         movwf   CNT2
+                      00050 
+0011                  00051 DLP2 ;------------------------------
+0011   0000           00052                         nop
+0012   0000           00053                         nop
+                      00054                         
+0013   02F1           00055                         decfsz  CNT2,f
+                      00056 
+0014   0A??           00057                         goto    DLP2
+                      00058 
+                      00059                         ;-----------------
+                      00060                         
+0015   02F0           00061                         decfsz  CNT1,f
+                      00062                         
+0016   0A??           00063                         goto    DLP1
+                      00064 
+                      00065                         ;-----------------
+                      00066                         
+0017   02F2           00067                         decfsz  CNT3,f
+                      00068                         
+0018   0A??           00069                         goto    DLY_100
+                      00070                         
+                      00071                         ;-----------------
+                      00072                         
+0019   0800           00073                         RETLW   0
+                      00074                         
+                      00075 ;---------------------------------------
+0FEB                  00076                         END
+MPASM  5.47                   P1_CROSSING.ASM   11-25-2012  13:11:55         PAGE  3
+>>>>>>> B1_basic
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+CAL0                              00000001
+CAL1                              00000002
+CAL2                              00000003
+CAL3                              00000004
+CAL4                              00000005
+CAL5                              00000006
+CAL6                              00000007
+CNT1                              00000010
+CNT2                              00000011
+CNT3                              00000012
+DC                                00000001
+<<<<<<< HEAD
+=======
+DLP1                              0000000F
+DLP2                              00000011
+DLY_100                           0000000D
+DLY_S                             0000000B
+>>>>>>> B1_basic
+F                                 00000001
+FOSC4                             00000000
+FSR                               00000004
+GP0                               00000000
+GP1                               00000001
+GP2                               00000002
+GP3                               00000003
+GPIO                              00000006
+GPWUF                             00000007
+INDF                              00000000
+NOT_GPPU                          00000006
+NOT_GPWU                          00000007
+NOT_PD                            00000003
+NOT_TO                            00000004
+OSCCAL                            00000005
+PCL                               00000002
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+STATUS                            00000003
+T0CS                              00000005
+T0SE                              00000004
+TMR0                              00000001
+TRISIO0                           00000000
+TRISIO1                           00000001
+TRISIO2                           00000002
+TRISIO3                           00000003
+W                                 00000000
+Z                                 00000002
+_CONFIG                           00000FFF
+_CP_OFF                           00000FFF
+_CP_ON                            00000FF7
+_IDLOC0                           00000100
+_IDLOC1                           00000101
+_IDLOC2                           00000102
+_IDLOC3                           00000103
+<<<<<<< HEAD
+_IntRC_OSC                        00000FFF
+_MCLRE_OFF                        00000FEF
+_MCLRE_ON                         00000FFF
+_OSC_IntRC                        00000FFF
+MPASM  5.47                   P1_CROSSING.ASM   11-25-2012  12:28:00         PAGE  3
+=======
+MPASM  5.47                   P1_CROSSING.ASM   11-25-2012  13:11:55         PAGE  4
+>>>>>>> B1_basic
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+<<<<<<< HEAD
+=======
+_IntRC_OSC                        00000FFF
+_MCLRE_OFF                        00000FEF
+_MCLRE_ON                         00000FFF
+_OSC_IntRC                        00000FFF
+>>>>>>> B1_basic
+_WDTE_OFF                         00000FFB
+_WDTE_ON                          00000FFF
+_WDT_OFF                          00000FFB
+_WDT_ON                           00000FFF
+__10F200                          00000001
+main                              00000000
+main_loop                         00000004
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+
